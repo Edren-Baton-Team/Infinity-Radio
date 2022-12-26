@@ -11,7 +11,7 @@
         public const string Author = "Rysik5318";
         public static Plugin Instance { get; private set; }
 
-        [PluginConfig("Infinity_Radio")]
+        [PluginConfig("Infinity_Radio.yml")]
         public Config Config;
 
         [PluginPriority(LoadPriority.Highest)]
