@@ -1,16 +1,19 @@
 ﻿namespace Infinity_Radio
 {
+    using HarmonyLib;
     using InventorySystem.Items.Radio;
     using PluginAPI.Core;
     using PluginAPI.Core.Attributes;
     using PluginAPI.Enums; 
     public class EventHandlers
     {
-        [PluginEvent(ServerEventType.PlayerChangeRadioRange)]
-        public void OnPlayerChangesRadioRange(Player player, RadioItem radio, byte range)
+        [HarmonyPatch(typeof(RadioItem), "Update")]
+        static class RadioPostfix
         {
-            radio.enabled = false;
-            radio.BatteryPercent = 100;
+            public static void Prefix(RadioItem __instance)
+            {
+                __instance.BatteryPercent = 100;
+            }
         }
     }
 }
