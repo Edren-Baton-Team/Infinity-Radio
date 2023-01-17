@@ -2,9 +2,6 @@
 {
     using HarmonyLib;
     using InventorySystem.Items.Radio;
-    using PluginAPI.Core;
-    using PluginAPI.Core.Attributes;
-    using PluginAPI.Enums; 
     public class EventHandlers
     {
         [HarmonyPatch(typeof(RadioItem), "Update")]
